@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	public bool IsShadow;
+	[SerializeField]
+	private Slider _energySlider;
 	public int PlayerNumber; // 1-indexed
+	private float _energy = 3f;
 
 	// Use this for initialization
 	void Start () {
@@ -20,14 +24,22 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		_energySlider.value = _energy;
 		var xVelocity = Input.GetAxis("HorizontalPlayer" + PlayerNumber);
 		var yVelocity = Input.GetAxis("VerticalPlayer" + PlayerNumber);
+		var sprint = Input.GetAxisRaw("Sprint" + PlayerNumber);
 
 		gameObject.GetComponent<Rigidbody>().velocity = new Vector3(
-			xVelocity * Config.MovementSpeed,
-      0,
-			yVelocity * Config.MovementSpeed
+			xVelocity * Config.MovementSpeed * ((sprint * 2) + 1) * _energy,
+      		0,
+			yVelocity * Config.MovementSpeed * ((sprint * 2) + 1) * _energy
 		);
+
+		if (sprint != 0f && _energy > 0f) {
+			_energy -= Time.deltaTime;
+		} else if (_energy < 3f){
+			_energy += Time.deltaTime;
+		}
 
 		Vector3 direction = (Vector3.right * xVelocity) + (Vector3.forward * yVelocity);
 		if (direction != Vector3.zero) {
