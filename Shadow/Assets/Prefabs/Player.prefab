@@ -20,8 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4235136075497180}
   - component: {fileID: 108857400384974190}
+  - component: {fileID: 65646408702489966}
+  - component: {fileID: 114747196140988420}
   m_Layer: 0
-  m_Name: flashlight
+  m_Name: light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,6 +42,8 @@ GameObject:
   - component: {fileID: 65221156424657504}
   - component: {fileID: 114966687639934986}
   - component: {fileID: 54571593972705406}
+  - component: {fileID: 135300489527896294}
+  - component: {fileID: 114665788377197528}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -229,6 +233,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65646408702489966
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1361105501114818}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.9727378, z: 3.492321}
+  m_Center: {x: 0, y: 0.60863066, z: 2.485336}
 --- !u!108 &108857400384974190
 Light:
   m_ObjectHideFlags: 1
@@ -265,6 +281,30 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114665788377197528
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1427026466502422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5818ae24e3f323419413849bd9a5b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _light: {fileID: 108857400384974190}
+--- !u!114 &114747196140988420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1361105501114818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5818ae24e3f323419413849bd9a5b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _light: {fileID: 0}
 --- !u!114 &114966687639934986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -279,3 +319,15 @@ MonoBehaviour:
   IsShadow: 0
   _energySlider: {fileID: 0}
   PlayerNumber: 1
+--- !u!135 &135300489527896294
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1427026466502422}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.19
+  m_Center: {x: 0, y: 0, z: 0}
