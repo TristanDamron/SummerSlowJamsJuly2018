@@ -551,7 +551,7 @@ MonoBehaviour:
         isActive: 1
         layerSource:
           Name: Streets
-          Id: mapbox://styles/tdamron/cjjvuwe3t5c122ro1hivk5c7z
+          Id: mapbox://styles/tdamron/cjjw12afq5h3p2rlh7ob9k0j1
           Modified: 
           UserName: 
       rasterOptions:
@@ -762,7 +762,8 @@ Prefab:
       propertyPath: _energySlider
       value: 
       objectReference: {fileID: 503131637}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114747196140988420, guid: a4906105ea1374e52b2b635980b22c95, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a4906105ea1374e52b2b635980b22c95, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2013352120
