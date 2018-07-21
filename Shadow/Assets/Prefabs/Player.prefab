@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5818ae24e3f323419413849bd9a5b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _light: {fileID: 0}
+  _light: {fileID: 108857400384974190}
 --- !u!114 &114966687639934986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -316,9 +316,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6dc46f0715047bfb97edcce4f7a19a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsShadow: 0
+  bulletPrefab: {fileID: 1646430585337588, guid: 26234fb6edf544e02895106f6319fcf6,
+    type: 2}
   _energySlider: {fileID: 0}
+  IsShadow: 0
   PlayerNumber: 1
+  numberOfBullets: 0
 --- !u!135 &135300489527896294
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -21,4 +21,8 @@ public class Config : MonoBehaviour {
 	int numberOfPlayers;
 	public static int NumberOfPlayers { get { return config.numberOfPlayers; } }
 
+	[SerializeField]
+  float bulletSpeed;
+	public static float BulletSpeed { get { return config.bulletSpeed; } }
+
 }
