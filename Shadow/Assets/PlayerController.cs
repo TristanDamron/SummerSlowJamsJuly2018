@@ -4,12 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
+	
+	[Header("GameObjects set in Unity Inspector")]
 	[SerializeField]
+	private GameObject bulletPrefab;
+	[SerializeField]
+  private Slider _energySlider;
+
+	[Header("Player information")]
 	public bool IsShadow;
-	[SerializeField]
-	private Slider _energySlider;
 	public int PlayerNumber; // 1-indexed
+
 	private float _energy = 3f;
+	[SerializeField]
+	private int numberOfBullets;
 
 	// Use this for initialization
 	void Start () {
@@ -41,9 +49,17 @@ public class PlayerController : MonoBehaviour {
 			_energy += Time.deltaTime;
 		}
 
+		if (Input.GetButtonDown("ShootPlayer" + PlayerNumber)) {
+			Shoot();
+		}
+
 		Vector3 direction = (Vector3.right * xVelocity) + (Vector3.forward * yVelocity);
 		if (direction != Vector3.zero) {
       transform.rotation=Quaternion.LookRotation(direction);
 		}
+	}
+       
+	void Shoot() {
+		
 	}
 }
