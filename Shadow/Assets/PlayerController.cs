@@ -103,10 +103,4 @@ public class PlayerController : MonoBehaviour {
 		yield return new WaitForSeconds(0.1f);		
 		_shadowWeapon.SetActive(false);				
 	}
-
-	void OnCollisionEnter(Collision c) {
-		if (IsShadow && c.gameObject.name == "Bullet") {
-			hp -= 1f;
-		}
-	}
 }

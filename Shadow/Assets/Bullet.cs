@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour {
 	void OnTriggerEnter(Collider col) {
 		switch (col.tag) {
 			case "Shadow":
+				col.gameObject.GetComponent<PlayerController>().hp -= 1f;
 				Debug.Log("Hit shadow!");
 				break;
 			case "Player":

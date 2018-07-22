@@ -19,6 +19,7 @@ public class PlayerSpawn : MonoBehaviour {
 				GameObject.Find("Ready Up Text").SetActive(false);
 				// TODO(tdamron): Set the 4th player as the shadow
 				p.GetComponent<PlayerController>().IsShadow = true;
+				p.tag = "Shadow";
 			}
 
 			Destroy(gameObject);
