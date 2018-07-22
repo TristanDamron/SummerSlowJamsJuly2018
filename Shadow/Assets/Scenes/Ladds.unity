@@ -2357,7 +2357,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4399859824426874, guid: a4906105ea1374e52b2b635980b22c95, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 21.3
+      value: 67
       objectReference: {fileID: 0}
     - target: {fileID: 4399859824426874, guid: a4906105ea1374e52b2b635980b22c95, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3984,6 +3984,8 @@ GameObject:
   - component: {fileID: 2013352122}
   - component: {fileID: 2013352121}
   - component: {fileID: 2013352125}
+  - component: {fileID: 2013352127}
+  - component: {fileID: 2013352126}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4069,6 +4071,40 @@ MonoBehaviour:
   furthestWest: 0
   furthestNorth: 0
   furthestSouth: 0
+--- !u!114 &2013352126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2013352120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b1acd8559eee54da6edd0c445da4ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _VHS_Material: {fileID: 2100000, guid: 3fab1e6770ec9bf418cbc0c9f7b105ae, type: 2}
+  _VHSNoise: {fileID: 2800000, guid: c171d861cb5bf75408826b8f346946bb, type: 3}
+  _textureIntensity: 0.98
+  _verticalOffset: 0
+  offsetColor: 0.005
+  _OffsetDistortion: 1500
+  _scan: 1
+  _adjustLines: 2.23
+  _scanLinesColor: {r: 0, g: 0, b: 0, a: 0.29411766}
+--- !u!114 &2013352127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2013352120}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8003ec43ef455e439da87cef5442c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _TV_Material: {fileID: 2100000, guid: 31edba4ec8b2a1d4fa22e5166718d4cf, type: 2}
+  _hardScan: 0
+  _resolution: 1.38
 --- !u!1 &2051523889
 GameObject:
   m_ObjectHideFlags: 0
@@ -4364,6 +4400,11 @@ Prefab:
         type: 2}
       propertyPath: numberOfPlayers
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114056257272638206, guid: 119966b8f247cd3419a14cd9fdd13fec,
+        type: 2}
+      propertyPath: cameraMovementSpeed
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 119966b8f247cd3419a14cd9fdd13fec, type: 2}
