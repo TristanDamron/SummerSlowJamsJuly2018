@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
 	[Header("GameObjects set in Unity Inspector")]
 	[SerializeField]
 	private GameObject bulletPrefab;
+	[SerializeField]
   	private Slider _energySlider;
 
 	[Header("Player information")]
@@ -36,7 +37,6 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		_healthBar = GameObject.Find("HealthPlayer" + PlayerNumber).GetComponent<Slider>();
-		_energySlider = GameObject.Find("EnergySlider" + PlayerNumber).GetComponent<Slider>();
 	}
 	
 	// Update is called once per frame
@@ -60,8 +60,12 @@ public class PlayerController : MonoBehaviour {
 
 		if (sprint != 0f && _energy > 0f) {
 			_energy -= Time.deltaTime;
-		} else if (_energy < 3f){
+			_energySlider.gameObject.SetActive(true);			
+		} else if (_energy < 3f) {
+			_energySlider.gameObject.SetActive(true);
 			_energy += Time.deltaTime;
+		} else {
+			_energySlider.gameObject.SetActive(false);
 		}
 
 		Vector3 direction = (Vector3.right * xVelocity) + (Vector3.forward * yVelocity);
