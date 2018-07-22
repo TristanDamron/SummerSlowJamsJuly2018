@@ -55,8 +55,6 @@ public class BulletPickupManager : MonoBehaviour {
 			}
 		}
 
-		print(possibleSpawnIndices.Count);
-
 		if (possibleSpawnIndices.Count == 0) {
 			Debug.Log("can't spawn any more, no spots available");
 			return;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 /// <summary>
 /// Singleton class that allows us to set constants in the inspector.
@@ -13,6 +14,7 @@ public class Config : MonoBehaviour {
   }
 
   // Bunch of publicly accessible variables in the singleton style
+	[Header("Game config settings")]
 	[SerializeField]
 	float movementSpeed;
 	public static float MovementSpeed { get { return config.movementSpeed; } }
@@ -40,4 +42,27 @@ public class Config : MonoBehaviour {
 	[SerializeField]
 	int readyPlayers;
 	public static int ReadyPlayers { get { return config.readyPlayers; } set  { config.readyPlayers = value; } }
+
+	[SerializeField]
+  float cameraMovementSpeed;
+	public static float CameraMovementSpeed { get { return config.cameraMovementSpeed; } }
+
+	public static void StartGame() {
+		CameraAdjuster.Init();
+	}
+}
+
+[CustomEditor(typeof(Config))]
+public class ConfigEditor : Editor
+{
+  public override void OnInspectorGUI()
+  {
+    DrawDefaultInspector();
+
+		Config myScript = (Config)target;
+    if(GUILayout.Button("Simulate game start"))
+    {
+			Config.StartGame();
+    }
+  }
 }
