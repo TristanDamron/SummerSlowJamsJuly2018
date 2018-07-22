@@ -2391,6 +2391,20 @@ Prefab:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1427026466502422, guid: a4906105ea1374e52b2b635980b22c95, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224193976044529836, guid: a4906105ea1374e52b2b635980b22c95,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224193976044529836, guid: a4906105ea1374e52b2b635980b22c95,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a4906105ea1374e52b2b635980b22c95, type: 2}
   m_IsPrefabParent: 0
@@ -2532,7 +2546,7 @@ MonoBehaviour:
         isActive: 1
         layerSource:
           Name: Streets
-          Id: mapbox://styles/tdamron/cjjw3ekkf5spz2sqv0l8mpc54
+          Id: mapbox://styles/tdamron/cjjxdzivi2to32sqhki05dalt
           Modified: 
           UserName: 
       rasterOptions:
@@ -2635,13 +2649,13 @@ MonoBehaviour:
         colliderOptions:
           colliderType: 1
         materialOptions:
-          style: 4
+          style: 0
           texturingType: 0
           materials:
           - Materials:
-            - {fileID: 2100000, guid: a1aa333e18c0640d7b428eecff9c4af7, type: 2}
+            - {fileID: 2100000, guid: 6596c37c2c000a54eb11f61dd1617faf, type: 2}
           - Materials:
-            - {fileID: 2100000, guid: c0653693b48614a139a124871d499679, type: 2}
+            - {fileID: 2100000, guid: 6596c37c2c000a54eb11f61dd1617faf, type: 2}
           atlasInfo: {fileID: 11400000, guid: 414754d7155df47beb52ca117a774f21, type: 2}
           colorPalette: {fileID: 11400000, guid: 57bdfa37edf7a4f7f999d19443497554,
             type: 2}
@@ -2797,7 +2811,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4399859824426874, guid: a4906105ea1374e52b2b635980b22c95, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -109.7
       objectReference: {fileID: 0}
     - target: {fileID: 4399859824426874, guid: a4906105ea1374e52b2b635980b22c95, type: 2}
       propertyPath: m_LocalPosition.z
