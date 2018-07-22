@@ -8,8 +8,7 @@ public class PlayerController : MonoBehaviour {
 	[Header("GameObjects set in Unity Inspector")]
 	[SerializeField]
 	private GameObject bulletPrefab;
-	[SerializeField]
-  private Slider _energySlider;
+  	private Slider _energySlider;
 
 	[Header("Player information")]
 	public bool IsShadow;
@@ -37,6 +36,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		_healthBar = GameObject.Find("HealthPlayer" + PlayerNumber).GetComponent<Slider>();
+		_energySlider = GameObject.Find("EnergySlider" + PlayerNumber).GetComponent<Slider>();
 	}
 	
 	// Update is called once per frame
