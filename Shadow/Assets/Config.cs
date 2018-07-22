@@ -25,4 +25,15 @@ public class Config : MonoBehaviour {
   float bulletSpeed;
 	public static float BulletSpeed { get { return config.bulletSpeed; } }
 
+	[SerializeField]
+  int startingBulletNumber;
+	public static int StartingBulletNumber { get { return config.startingBulletNumber; } }
+
+  [SerializeField]
+  int startingPickupNumber;
+	public static int StartingPickupNumber { get { return config.startingPickupNumber; } }
+
+  [SerializeField]
+  int pickupSpawnInterval;
+	public static int PickupSpawnInterval { get { return config.pickupSpawnInterval; } }
 }

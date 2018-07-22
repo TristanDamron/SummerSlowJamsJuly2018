@@ -60,15 +60,19 @@ public class PlayerController : MonoBehaviour {
 	}
        
 	void Shoot() {
-		var bullet = GameObject.Instantiate(bulletPrefab, transform);
-    
-		bullet.transform.localPosition = new Vector3(0, 2, 3);
-		bullet.transform.SetParent(null);
+		if (BulletPickupManager.Inst.DecrementNumberBullets()) {
+  		var bullet = GameObject.Instantiate(bulletPrefab, transform);
+      
+  		bullet.transform.localPosition = new Vector3(0, 2, 3);
+  		bullet.transform.SetParent(null);
 
-		bullet.GetComponent<Rigidbody>().velocity = (transform.forward * Config.BulletSpeed);
+  		bullet.GetComponent<Rigidbody>().velocity = (transform.forward * Config.BulletSpeed);
 
-		Destroy(bullet, 2.0f);
+  		Destroy(bullet, 2.0f);
 
-		SoundManager.Inst.PlaySound(SoundManager.Inst.ShootClip);
+  		SoundManager.Inst.PlaySound(SoundManager.Inst.ShootClip);
+		} else {
+			SoundManager.Inst.PlaySound(SoundManager.Inst.NoBulletsClip);
+		}
 	}
 }

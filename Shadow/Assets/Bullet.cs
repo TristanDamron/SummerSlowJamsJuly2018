@@ -12,6 +12,10 @@ public class Bullet : MonoBehaviour {
 			case "Player":
 				Debug.Log("Hit a player");
 				break;
+			case "Bullet pickup":
+				Destroy(col);
+				Debug.Log("You shot a bullet pickup");
+				break;
 			default:
 				Debug.Log("Hit building geometry or floor");
 				break;
@@ -21,6 +25,9 @@ public class Bullet : MonoBehaviour {
 	}
 
 	private void OnDestroy() {
-		SoundManager.Inst.PlaySound(SoundManager.Inst.BulletDiesClip);
+		// Prevent errors on scene end
+		if (SoundManager.Inst != null) {
+  		SoundManager.Inst.PlaySound(SoundManager.Inst.BulletDiesClip);
+		}
 	}
 }
