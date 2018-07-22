@@ -2777,29 +2777,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114966687639934986, guid: a4906105ea1374e52b2b635980b22c95,
-        type: 2}
-      propertyPath: _energySlider
-      value: 
-      objectReference: {fileID: 503131637}
-    - target: {fileID: 65646408702489966, guid: a4906105ea1374e52b2b635980b22c95,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 65646408702489966, guid: a4906105ea1374e52b2b635980b22c95,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1361105501114818, guid: a4906105ea1374e52b2b635980b22c95, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1361105501114818, guid: a4906105ea1374e52b2b635980b22c95, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a4906105ea1374e52b2b635980b22c95, type: 2}
   m_IsPrefabParent: 0

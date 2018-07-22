@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33111364947850882}
   - component: {fileID: 23964096720943532}
   - component: {fileID: 65157889261180776}
+  - component: {fileID: 114144257299408900}
   m_Layer: 0
   m_Name: Shadow Weapon
   m_TagString: Untagged
@@ -40,9 +41,9 @@ GameObject:
   - component: {fileID: 108857400384974190}
   - component: {fileID: 65646408702489966}
   - component: {fileID: 114747196140988420}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: light
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -367,6 +368,17 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114144257299408900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1352390200657234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83c5ffaf076a8d4f81fbeb8367d3d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114665788377197528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -404,7 +416,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1646430585337588, guid: 26234fb6edf544e02895106f6319fcf6,
     type: 2}
-  _energySlider: {fileID: 0}
   IsShadow: 0
   PlayerNumber: 0
   hp: 0

@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour {
 	private void OnDestroy() {
 		// Prevent errors on scene end
 		if (SoundManager.Inst != null) {
-  		SoundManager.Inst.PlaySound(SoundManager.Inst.BulletDiesClip);
+  			SoundManager.Inst.PlaySound(SoundManager.Inst.BulletDiesClip);
 		}
 	}
 }

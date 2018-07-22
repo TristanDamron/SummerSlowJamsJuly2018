@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShadowWeapon : MonoBehaviour {
 	void OnTriggerEnter(Collider c) {
-		if (c.name == "Player") {
+		if (c.tag == "Player") {
 			c.GetComponent<PlayerController>().hp -= 1f; 
 		}
 	}
