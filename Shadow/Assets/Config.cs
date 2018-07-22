@@ -36,4 +36,8 @@ public class Config : MonoBehaviour {
   [SerializeField]
   int pickupSpawnInterval;
 	public static int PickupSpawnInterval { get { return config.pickupSpawnInterval; } }
+	
+	[SerializeField]
+	int readyPlayers;
+	public static int ReadyPlayers { get { return config.readyPlayers; } set  { config.readyPlayers = value; } }
 }
