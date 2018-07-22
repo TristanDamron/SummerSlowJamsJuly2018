@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	private GameObject _shadowWeapon;
 	private Slider _healthBar;
+	private float _boost;
 
 
 	// Use this for initialization
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		_healthBar = GameObject.Find("HealthPlayer" + PlayerNumber).GetComponent<Slider>();
+		_boost = 1f;
 	}
 	
 	// Update is called once per frame
@@ -53,24 +55,26 @@ public class PlayerController : MonoBehaviour {
 		var sprint = Input.GetAxisRaw("Sprint" + PlayerNumber);
 
 		gameObject.GetComponent<Rigidbody>().velocity = new Vector3(
-			xVelocity * Config.MovementSpeed * ((sprint * 2) + 1) * _energy,
+			xVelocity * Config.MovementSpeed * _boost,
       		0,
-			yVelocity * Config.MovementSpeed * ((sprint * 2) + 1) * _energy
+			yVelocity * Config.MovementSpeed * _boost
 		);
 
-		if (sprint != 0f && _energy > 0f) {
-			_energy -= Time.deltaTime;
+		if (sprint != 0f && _energy >= 3f) {
+			_energy = 0f;
+			_boost = 3f;
 			_energySlider.gameObject.SetActive(true);			
 		} else if (_energy < 3f) {
-			_energySlider.gameObject.SetActive(true);
+			// _energySlider.gameObject.SetActive(true);
 			_energy += Time.deltaTime;
 		} else {
+			_boost = 1f;
 			_energySlider.gameObject.SetActive(false);
 		}
 
 		Vector3 direction = (Vector3.right * xVelocity) + (Vector3.forward * yVelocity);
 		if (direction != Vector3.zero) {
-      transform.rotation = Quaternion.LookRotation(direction);
+      		transform.rotation = Quaternion.LookRotation(direction);
 		}
 
 		if (Input.GetButtonDown("ShootPlayer" + PlayerNumber) && IsShadow) {
