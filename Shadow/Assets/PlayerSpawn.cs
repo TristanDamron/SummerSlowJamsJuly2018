@@ -14,8 +14,11 @@ public class PlayerSpawn : MonoBehaviour {
 			var p = Instantiate(_player, transform.position, transform.rotation);
 			p.GetComponent<PlayerController>().PlayerNumber = _playerNum;
 
+			// TODO(tdamron): Change this from 1 to 4 for playtesting 
 			if (Config.ReadyPlayers >= 1) {
 				GameObject.Find("Ready Up Text").SetActive(false);
+				// TODO(tdamron): Set the 4th player as the shadow
+				// p.GetComponent<PlayerController>().IsShadow = true;
 			}
 
 			Destroy(gameObject);

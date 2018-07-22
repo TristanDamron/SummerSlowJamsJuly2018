@@ -14,13 +14,20 @@ public class PlayerController : MonoBehaviour {
 	[Header("Player information")]
 	public bool IsShadow;
 	public int PlayerNumber; // 1-indexed
+	public float hp;
 
 	private float _energy = 3f;
 	[SerializeField]
 	private int numberOfBullets;
+	[SerializeField]
+	private GameObject _shadowWeapon;
+	private Slider _healthBar;
+
 
 	// Use this for initialization
 	void Start () {
+		hp = 5;
+
 		if (PlayerNumber < 1 || PlayerNumber > Config.NumberOfPlayers) {
 			Debug.LogError(
 				"The max number of players is " + 
@@ -28,10 +35,18 @@ public class PlayerController : MonoBehaviour {
         " and player numbers start at 1"
 			);
 		}
+
+		_healthBar = GameObject.Find("HealthPlayer" + PlayerNumber).GetComponent<Slider>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		_healthBar.value = hp;
+
+		if (hp <= 0f) {
+			Destroy(gameObject);
+		}
+
 		_energySlider.value = _energy;
 		var xVelocity = Input.GetAxis("HorizontalPlayer" + PlayerNumber);
 		var yVelocity = Input.GetAxis("VerticalPlayer" + PlayerNumber);
@@ -54,9 +69,12 @@ public class PlayerController : MonoBehaviour {
       transform.rotation = Quaternion.LookRotation(direction);
 		}
 
-		if (Input.GetButtonDown("ShootPlayer" + PlayerNumber)) {
-      Shoot();
-    }
+		if (Input.GetButtonDown("ShootPlayer" + PlayerNumber) && IsShadow) {
+      		Swipe();
+    	}		
+		else if (Input.GetButtonDown("ShootPlayer" + PlayerNumber)) {
+      		Shoot();
+    	}
 	}
        
 	void Shoot() {
@@ -73,6 +91,22 @@ public class PlayerController : MonoBehaviour {
   		SoundManager.Inst.PlaySound(SoundManager.Inst.ShootClip);
 		} else {
 			SoundManager.Inst.PlaySound(SoundManager.Inst.NoBulletsClip);
+		}
+	}
+
+	void Swipe() {
+		_shadowWeapon.SetActive(true);
+		StartCoroutine(SheathWeapon());
+	}
+
+	IEnumerator SheathWeapon() {
+		yield return new WaitForSeconds(0.1f);		
+		_shadowWeapon.SetActive(false);				
+	}
+
+	void OnCollisionEnter(Collision c) {
+		if (IsShadow && c.gameObject.name == "Bullet") {
+			hp -= 1f;
 		}
 	}
 }
