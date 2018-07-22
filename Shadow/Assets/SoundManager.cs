@@ -9,6 +9,8 @@ public class SoundManager : MonoBehaviour {
 	[Header("Set in Unity Inspector")]
 	public AudioClip ShootClip;
 	public AudioClip BulletDiesClip;
+	public AudioClip NoBulletsClip;
+	public AudioClip PickupClip;
 
 	private void Awake() {
 		source = gameObject.GetComponent<AudioSource>();
