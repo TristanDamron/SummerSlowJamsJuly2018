@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ShadowController : MonoBehaviour {
 	void OnTriggerEnter(Collider c) {
-		if (c.name == "light") {
+		if (c.tag == "Light") {			
 			GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 		}
 	}
 
 	void OnTriggerExit(Collider c) {
-		if (c.name == "light") {
+		if (c.tag == "Light") {
 			GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
 		}
 	}

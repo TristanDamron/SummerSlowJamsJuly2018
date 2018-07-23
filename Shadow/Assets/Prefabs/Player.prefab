@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 114747196140988420}
   m_Layer: 9
   m_Name: light
-  m_TagString: Untagged
+  m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,7 +112,6 @@ GameObject:
   - component: {fileID: 114966687639934986}
   - component: {fileID: 54571593972705406}
   - component: {fileID: 135300489527896294}
-  - component: {fileID: 114665788377197528}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -217,7 +216,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1427026466502422}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.3, y: 0, z: 0}
+  m_LocalPosition: {x: -41.6, y: -109.7, z: 0}
   m_LocalScale: {x: 5, y: 2, z: 5}
   m_Children:
   - {fileID: 4174340413331068}
@@ -441,7 +440,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -559,18 +558,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114665788377197528
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1427026466502422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5818ae24e3f323419413849bd9a5b5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _light: {fileID: 108857400384974190}
 --- !u!114 &114724946866165354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -609,7 +596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5818ae24e3f323419413849bd9a5b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _light: {fileID: 108857400384974190}
+  _min: 30
+  _max: 80
 --- !u!114 &114966687639934986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -625,7 +613,7 @@ MonoBehaviour:
     type: 2}
   _energySlider: {fileID: 114300787210923034}
   IsShadow: 0
-  PlayerNumber: 2
+  PlayerNumber: 1
   hp: 0
   numberOfBullets: 0
   _shadowWeapon: {fileID: 1352390200657234}
