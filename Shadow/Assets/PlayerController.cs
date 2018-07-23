@@ -38,7 +38,11 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		_healthBar = GameObject.Find("HealthPlayer" + PlayerNumber).GetComponent<Slider>();
-		_boost = 1f;
+		
+		if (IsShadow)
+			_boost = 3f;
+		else 
+			_boost = 1f;
 	}
 	
 	// Update is called once per frame
@@ -49,7 +53,6 @@ public class PlayerController : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
-		_energySlider.value = _energy;
 		var xVelocity = Input.GetAxis("HorizontalPlayer" + PlayerNumber);
 		var yVelocity = Input.GetAxis("VerticalPlayer" + PlayerNumber);
 		var sprint = Input.GetAxisRaw("Sprint" + PlayerNumber);
@@ -60,16 +63,20 @@ public class PlayerController : MonoBehaviour {
 			yVelocity * Config.MovementSpeed * _boost
 		);
 
-		if (sprint != 0f && _energy >= 3f) {
-			_energy = 0f;
-			_boost = 3f;
-			_energySlider.gameObject.SetActive(true);			
-		} else if (_energy < 3f) {
-			// _energySlider.gameObject.SetActive(true);
-			_energy += Time.deltaTime;
-		} else {
-			_boost = 1f;
-			_energySlider.gameObject.SetActive(false);
+		if (!IsShadow) {
+			_energySlider.value = _energy;
+			if (sprint != 0f && _energy >= 3f) {
+				_energy = 0f;
+				_boost = 3f;
+				_energySlider.gameObject.SetActive(true);			
+			} else if (_energy < 3f) {
+				// _energySlider.gameObject.SetActive(true);
+				_energy += Time.deltaTime;
+			} else {
+				_boost = 1f;
+				_energySlider.gameObject.SetActive(false);
+			}
+
 		}
 
 		Vector3 direction = (Vector3.right * xVelocity) + (Vector3.forward * yVelocity);
