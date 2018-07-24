@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 135023006591125262}
   - component: {fileID: 108263658575961208}
   - component: {fileID: 114992819820969052}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Bullet pickup prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

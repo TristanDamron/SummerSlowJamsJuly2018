@@ -47,8 +47,12 @@ public class Config : MonoBehaviour {
   float cameraMovementSpeed;
 	public static float CameraMovementSpeed { get { return config.cameraMovementSpeed; } }
 
+	[SerializeField]
+  bool paused;
+	public static bool Paused { get { return config.paused; } set { config.paused = value; } }	
+
 	public static void StartGame() {
-		CameraAdjuster.Init();
+			CameraAdjuster.Init();
 	}
 }
 

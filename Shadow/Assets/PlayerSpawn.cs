@@ -11,7 +11,7 @@ public class PlayerSpawn : MonoBehaviour {
 	private GameObject _shadow;
 
 	void Update () {
-		if (Input.GetAxis("ShootPlayer" + _playerNum) != 0f) {
+		if (Input.GetAxis("ShootPlayer" + _playerNum) != 0f && !Config.Paused) {
 			Config.ReadyPlayers++;
 
 			// TODO(tdamron): Change this from 1 to 4 for playtesting 
