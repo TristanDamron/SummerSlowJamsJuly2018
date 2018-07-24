@@ -33,4 +33,8 @@ public class BulletPickup : MonoBehaviour {
   		BulletPickupManager.Inst.SetPickupIndexAsAvailable(PickupSpawnLocationIndex);
 		}
 	}
+
+  void Update() {
+    transform.Rotate(Vector3.up * 100f * Time.deltaTime);
+  }
 }

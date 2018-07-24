@@ -9,7 +9,7 @@ using System.Linq;
 public class CameraAdjuster : MonoBehaviour {
 	static Camera cam;
 	static TV_Effect tvEffect;
-	static VHS_Effect vhsEffect;
+	public static VHS_Effect vhsEffect;
 
 	static CameraAdjuster cameraAdjuster;
 	static bool initialized;

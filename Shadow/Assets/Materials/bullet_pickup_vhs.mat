@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: VHSMat
+  m_Name: bullet_pickup_vhs
   m_Shader: {fileID: 4800000, guid: f7a4f0bc5e51c9149a2996b30791b1e8, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -55,7 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SecondaryTex:
-        m_Texture: {fileID: 2800000, guid: c171d861cb5bf75408826b8f346946bb, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -66,14 +66,14 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Intensity: 0.93929446
+    - _Intensity: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OffsetColor: 0.0010705554
+    - _OffsetColor: 0.000023165978
     - _OffsetDistortion: 1500
-    - _OffsetNoiseX: 0.22490963
-    - _OffsetNoiseY: 9.9223995
+    - _OffsetNoiseX: 0.35002354
+    - _OffsetNoiseY: 7.317979
     - _OffsetPosY: 0
     - _Parallax: 0.02
     - _ScanLines: 2.23
