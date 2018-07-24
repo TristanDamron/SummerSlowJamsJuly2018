@@ -9,6 +9,8 @@ public class PlayerSpawn : MonoBehaviour {
 	private int _playerNum;
 	[SerializeField]
 	private GameObject _shadow;
+    [SerializeField]
+    private GameObject _healthBar;
 
 	void Update () {
 		if (Input.GetAxis("ShootPlayer" + _playerNum) != 0f && !Config.Paused) {
@@ -18,12 +20,12 @@ public class PlayerSpawn : MonoBehaviour {
 			if (Config.ReadyPlayers >= Config.NumberOfPlayers) {
 				var p = Instantiate(_shadow, transform.position, transform.rotation);
 				p.GetComponent<PlayerController>().PlayerNumber = _playerNum;
-
 				Config.StartGame();
 			} else {
 				var p = Instantiate(_player, transform.position, transform.rotation);
 				p.GetComponent<PlayerController>().PlayerNumber = _playerNum;
 			}
+            _healthBar.SetActive(true);
 
 			Destroy(gameObject);
 		}
