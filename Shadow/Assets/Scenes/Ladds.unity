@@ -155,7 +155,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2744248
 MonoBehaviour:
@@ -415,7 +415,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &83738088
 MonoBehaviour:
@@ -800,7 +800,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &231784822
 MonoBehaviour:
@@ -1131,7 +1131,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &422165874
 MonoBehaviour:
@@ -1239,7 +1239,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &446494233
 MonoBehaviour:
@@ -1499,7 +1499,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &518892501
 MonoBehaviour:
@@ -1607,7 +1607,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &540865034
 MonoBehaviour:
@@ -1715,7 +1715,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &560725300
 MonoBehaviour:
@@ -1976,7 +1976,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &578856934
 MonoBehaviour:
@@ -2429,7 +2429,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &732326795
 MonoBehaviour:
@@ -2605,7 +2605,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &764178941
 MonoBehaviour:
@@ -2713,7 +2713,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &765881837
 MonoBehaviour:
@@ -3890,7 +3890,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1108862522
 MonoBehaviour:
@@ -4194,7 +4194,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1140380885
 MonoBehaviour:
@@ -4420,7 +4420,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1229417570
 MonoBehaviour:
@@ -4528,7 +4528,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1231319396
 MonoBehaviour:
@@ -4688,7 +4688,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1347886117
 MonoBehaviour:
@@ -4796,7 +4796,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1357621971
 MonoBehaviour:
@@ -4904,7 +4904,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1358365201
 MonoBehaviour:
@@ -5012,7 +5012,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1378578936
 MonoBehaviour:
@@ -5216,7 +5216,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1471389507
 MonoBehaviour:
@@ -5795,6 +5795,130 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &1687587171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1687587173}
+  - component: {fileID: 1687587172}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1687587172
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1687587171}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bc13cff2dd68720448f570f611bbfc3e, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1687587173
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1687587171}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 127.07273, y: 75.48184, z: 118.12155}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1694299766
 GameObject:
   m_ObjectHideFlags: 0
@@ -5921,7 +6045,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1701565825
 MonoBehaviour:
@@ -6250,7 +6374,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1867827330
 MonoBehaviour:
@@ -6482,7 +6606,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1932277845
 MonoBehaviour:
@@ -7076,7 +7200,7 @@ Prefab:
     - target: {fileID: 114056257272638206, guid: 119966b8f247cd3419a14cd9fdd13fec,
         type: 2}
       propertyPath: numberOfPlayers
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114056257272638206, guid: 119966b8f247cd3419a14cd9fdd13fec,
         type: 2}
