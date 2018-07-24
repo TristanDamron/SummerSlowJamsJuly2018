@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using TMPro;
 
 /// <summary>
 /// Singleton class that allows us to set constants in the inspector.
@@ -49,11 +50,20 @@ public class Config : MonoBehaviour {
 
 	[SerializeField]
   bool paused;
-	public static bool Paused { get { return config.paused; } set { config.paused = value; } }	
+	public static bool Paused { get { return config.paused; } set { config.paused = value; } }
+
+    public GameObject EndGameObject;
+    public TextMeshProUGUI EndGameWinnerText;
 
 	public static void StartGame() {
-			CameraAdjuster.Init();
+			CameraAdjuster.ScanForPlayersAndShadow();
 	}
+
+    public static void EndGame(bool playersWin) {
+        print("The shadow is dead? " + playersWin);
+        config.EndGameObject.SetActive(true);
+        config.EndGameWinnerText.text = playersWin ? "RAD LADDS WIN!" : "MIDNIGHT MAN WINS!";
+    }
 }
 
 [CustomEditor(typeof(Config))]

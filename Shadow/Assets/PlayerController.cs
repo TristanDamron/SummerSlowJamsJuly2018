@@ -118,4 +118,8 @@ public class PlayerController : MonoBehaviour {
 		yield return new WaitForSeconds(0.1f);		
 		_shadowWeapon.SetActive(false);				
 	}
+
+    private void OnDestroy() {
+        CameraAdjuster.ScanForPlayersAndShadow();
+    }
 }

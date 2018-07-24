@@ -12,7 +12,6 @@ public class CameraAdjuster : MonoBehaviour {
 	public static VHS_Effect vhsEffect;
 
 	static CameraAdjuster cameraAdjuster;
-	static bool initialized;
 	static List<Transform> playerTransforms;
 	public float furthestEast = 0f;
 	public float furthestWest = 0f;
@@ -35,11 +34,11 @@ public class CameraAdjuster : MonoBehaviour {
 	void Update() {
 		if (playerTransforms.Count > 0) {
 
-      // Calculate furthest cardinal position of all players + shadow
+            // Calculate furthest cardinal position of all players + shadow
 			furthestEast = -maxXPosition;
 			furthestWest = maxXPosition; 
 			furthestNorth = -maxZPosition; 
-      furthestSouth = maxZPosition;
+            furthestSouth = maxZPosition;
 			foreach (Transform t in playerTransforms) {
 				if (t.position.x > furthestEast) furthestEast = t.position.x;
 				if (t.position.x < furthestWest) furthestWest = t.position.x;
@@ -47,7 +46,7 @@ public class CameraAdjuster : MonoBehaviour {
 				if (t.position.z > furthestNorth) furthestNorth = t.position.z;
 			}
 
-      // Calculate ideal camera height to capture whole game area
+            // Calculate ideal camera height to capture whole game area
 			float targetCameraHeight = 180; // default
 			float xMaxDifference = (furthestEast - furthestWest) / maxXPosition;
 			float zMaxDifference = (furthestNorth - furthestSouth) / maxZPosition;
@@ -68,15 +67,29 @@ public class CameraAdjuster : MonoBehaviour {
 		}
 	}
 
-	public static void Init() {
-		if (!initialized) {
-      GameObject.Find("Ready Up Text").SetActive(false);
-			playerTransforms = GameObject.FindGameObjectsWithTag("Player")
-        .Select(x => x.transform)
-        .ToList();
-			playerTransforms.Add(GameObject.FindGameObjectWithTag("Shadow").transform);
-		}
-	}
+	public static void ScanForPlayersAndShadow() {
+        GameObject readyUpText = GameObject.Find("Ready Up Text");
+        if (readyUpText != null) {
+            readyUpText.SetActive(false);
+        }
+
+        GameObject[] playerGameObjects = GameObject.FindGameObjectsWithTag("Player");
+        GameObject shadowGameObject = GameObject.FindGameObjectWithTag("Shadow");
+        if (playerGameObjects.Length < 1) {
+            playerTransforms = new List<Transform>() { };
+            Config.EndGame(false);
+        } else if (shadowGameObject == null) {
+            playerTransforms = new List<Transform>() { };
+            Config.EndGame(true);
+        } else {
+            playerTransforms = playerGameObjects
+                .Select(x => x.transform)
+                .ToList();
+            playerTransforms.Add(shadowGameObject.transform);
+        }
+    }
+
+
 
   // Max is 1f, min is ~0.07f
 	void DoVhsShaders(float magnitude) {
