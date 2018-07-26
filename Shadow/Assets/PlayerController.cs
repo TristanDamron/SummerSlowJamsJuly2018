@@ -86,10 +86,9 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if ((xVelocity != 0f || yVelocity != 0f) && !frozen) {
-			_animator.speed = 1f;
 			_animator.Play("walking");
 		} else {
-			_animator.speed = 0f;
+			_animator.Play("default");
 		}
 
 		if (!IsShadow) {
@@ -165,7 +164,7 @@ public class PlayerController : MonoBehaviour {
 				Config.FrozenKids++;			
 				hp -= 1f;
 			}
-			
+
 			frozen = true;	
 			GetComponent<ParticleSystem>().Play();		
 		}
