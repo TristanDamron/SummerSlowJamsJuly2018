@@ -47,7 +47,10 @@ public class Config : MonoBehaviour {
 	[SerializeField]
   float cameraMovementSpeed;
 	public static float CameraMovementSpeed { get { return config.cameraMovementSpeed; } }
-
+	[SerializeField]
+  int frozen;
+	public static int FrozenKids { get { return config.frozen; } set { config.frozen = value; } }
+	
 	[SerializeField]
   bool paused;
 	public static bool Paused { get { return config.paused; } set { config.paused = value; } }
@@ -66,6 +69,7 @@ public class Config : MonoBehaviour {
     }
 }
 
+// @TODO(tdamron): Turn off this block for production build
 // [CustomEditor(typeof(Config))]
 // public class ConfigEditor : Editor
 // {

@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour {
 	private Slider _healthBar;
 	private float _boost;
 	private bool _canAttack;
+	public bool frozen;
 
 
 	// Use this for initialization
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour {
 			_boost = 1f;
 		
 		_canAttack = true;
+		frozen = false;
 	}
 	
 	// Update is called once per frame
@@ -65,13 +67,17 @@ public class PlayerController : MonoBehaviour {
 		var yVelocity = Input.GetAxis("VerticalPlayer" + PlayerNumber);
 		var sprint = Input.GetAxisRaw("Sprint" + PlayerNumber);
 
-		if (!IsShadow) {
+		if (frozen) {
+			gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+		}
+
+		if (!IsShadow && !frozen) {
 			gameObject.GetComponent<Rigidbody>().velocity = new Vector3(
 				xVelocity * Config.MovementSpeed * _boost,
 				0,
 				yVelocity * Config.MovementSpeed * _boost
 			);
-		} else {
+		} else if (IsShadow) {
 			gameObject.GetComponent<Rigidbody>().velocity = new Vector3(
 				(xVelocity * 0.95f) * Config.MovementSpeed,
       			0,
@@ -79,7 +85,7 @@ public class PlayerController : MonoBehaviour {
 			);
 		}
 
-		if (xVelocity != 0f || yVelocity != 0f) {
+		if ((xVelocity != 0f || yVelocity != 0f) && !frozen) {
 			_animator.speed = 1f;
 			_animator.Play("walking");
 		} else {
@@ -152,4 +158,29 @@ public class PlayerController : MonoBehaviour {
     private void OnDestroy() {
         CameraAdjuster.ScanForPlayersAndShadow();
     }
+	
+	void OnTriggerEnter(Collider c) {
+		if (!IsShadow && c.tag == "Shadow") {
+			if (!frozen) {
+				Config.FrozenKids++;			
+				hp -= 1f;
+			}
+			
+			frozen = true;	
+			GetComponent<ParticleSystem>().Play();		
+		}
+
+	}
+
+	void OnCollisionEnter(Collision c) {
+		if (!IsShadow && c.gameObject.tag == "Player") {
+			if (frozen)
+				Config.FrozenKids--;		
+			frozen = false;
+			GetComponent<ParticleSystem>().Clear();			
+			GetComponent<ParticleSystem>().Stop();	
+			
+		}
+
+	}
 }

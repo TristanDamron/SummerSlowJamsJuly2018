@@ -32,6 +32,8 @@ public class CameraAdjuster : MonoBehaviour {
 	}
 
 	void Update() {
+		if (Config.ReadyPlayers == Config.NumberOfPlayers)
+			ScanForPlayersAndShadow();		
 		if (playerTransforms.Count > 0) {
 
             // Calculate furthest cardinal position of all players + shadow
@@ -75,7 +77,7 @@ public class CameraAdjuster : MonoBehaviour {
 
         GameObject[] playerGameObjects = GameObject.FindGameObjectsWithTag("Player");
         GameObject shadowGameObject = GameObject.FindGameObjectWithTag("Shadow");
-        if (playerGameObjects.Length < 1) {
+        if (playerGameObjects.Length < 1 || Config.FrozenKids >= (Config.NumberOfPlayers - 1)) {
             playerTransforms = new List<Transform>() { };
             Config.EndGame(false);
         } else if (shadowGameObject == null) {
@@ -88,7 +90,6 @@ public class CameraAdjuster : MonoBehaviour {
             playerTransforms.Add(shadowGameObject.transform);
         }
     }
-
 
 
   // Max is 1f, min is ~0.07f

@@ -5,7 +5,8 @@ using UnityEngine;
 public class ShadowWeapon : MonoBehaviour {
 	void OnTriggerEnter(Collider c) {
 		if (c.tag == "Player") {
-			c.GetComponent<PlayerController>().hp -= 1f; 
+			c.GetComponent<PlayerController>().frozen = true; 
+			Debug.Log(c.GetComponent<PlayerController>().frozen);
 		}
 	}
 }

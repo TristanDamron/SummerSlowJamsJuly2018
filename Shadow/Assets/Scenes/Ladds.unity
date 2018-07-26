@@ -8130,7 +8130,7 @@ Prefab:
     - target: {fileID: 114056257272638206, guid: 119966b8f247cd3419a14cd9fdd13fec,
         type: 2}
       propertyPath: numberOfPlayers
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114056257272638206, guid: 119966b8f247cd3419a14cd9fdd13fec,
         type: 2}

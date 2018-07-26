@@ -360,7 +360,6 @@ GameObject:
   - component: {fileID: 33935570371287380}
   - component: {fileID: 23150465447941750}
   - component: {fileID: 65286198542876000}
-  - component: {fileID: 114350293178576832}
   m_Layer: 0
   m_Name: Shadow Weapon
   m_TagString: Untagged
@@ -1288,7 +1287,7 @@ Transform:
   m_GameObject: {fileID: 1241936864912750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -74.4, z: 0}
-  m_LocalScale: {x: 6, y: 7.763151, z: 6}
+  m_LocalScale: {x: 9, y: 10.763151, z: 9}
   m_Children:
   - {fileID: 4645933548844908}
   - {fileID: 4035979377193046}
@@ -2138,17 +2137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mesh: {fileID: 137285364254898902}
---- !u!114 &114350293178576832
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1272547774237442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e83c5ffaf076a8d4f81fbeb8367d3d78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114949936203314670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2169,6 +2157,7 @@ MonoBehaviour:
   numberOfBullets: 0
   _shadowWeapon: {fileID: 1272547774237442}
   _animator: {fileID: 95878209816635908}
+  frozen: 0
 --- !u!135 &135336423386469414
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -2177,9 +2166,9 @@ SphereCollider:
   m_GameObject: {fileID: 1241936864912750}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 2.19
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137285364254898902
 SkinnedMeshRenderer:
