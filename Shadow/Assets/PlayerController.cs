@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour {
 	private Animator _animator;
 	private Slider _healthBar;
 	private float _boost;
+	private bool _canAttack;
 
 
 	// Use this for initialization
@@ -48,6 +49,8 @@ public class PlayerController : MonoBehaviour {
 			_boost = 3f;
 		else 
 			_boost = 1f;
+		
+		_canAttack = true;
 	}
 	
 	// Update is called once per frame
@@ -62,11 +65,19 @@ public class PlayerController : MonoBehaviour {
 		var yVelocity = Input.GetAxis("VerticalPlayer" + PlayerNumber);
 		var sprint = Input.GetAxisRaw("Sprint" + PlayerNumber);
 
-		gameObject.GetComponent<Rigidbody>().velocity = new Vector3(
-			xVelocity * Config.MovementSpeed * _boost,
-      		0,
-			yVelocity * Config.MovementSpeed * _boost
-		);
+		if (!IsShadow) {
+			gameObject.GetComponent<Rigidbody>().velocity = new Vector3(
+				xVelocity * Config.MovementSpeed * _boost,
+				0,
+				yVelocity * Config.MovementSpeed * _boost
+			);
+		} else {
+			gameObject.GetComponent<Rigidbody>().velocity = new Vector3(
+				(xVelocity * 0.95f) * Config.MovementSpeed,
+      			0,
+				(yVelocity * 0.95f) * Config.MovementSpeed
+			);
+		}
 
 		if (xVelocity != 0f || yVelocity != 0f) {
 			_animator.speed = 1f;
@@ -96,7 +107,7 @@ public class PlayerController : MonoBehaviour {
       		transform.rotation = Quaternion.LookRotation(direction);
 		}
 
-		if (Input.GetButtonDown("ShootPlayer" + PlayerNumber) && IsShadow) {
+		if (Input.GetButtonDown("ShootPlayer" + PlayerNumber) && IsShadow && _canAttack) {
       		Swipe();
     	}		
 		else if (Input.GetButtonDown("ShootPlayer" + PlayerNumber)) {
@@ -122,13 +133,20 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Swipe() {
+		_canAttack = false;
 		_shadowWeapon.SetActive(true);
 		StartCoroutine(SheathWeapon());
 	}
 
 	IEnumerator SheathWeapon() {
 		yield return new WaitForSeconds(0.1f);		
-		_shadowWeapon.SetActive(false);				
+		_shadowWeapon.SetActive(false);	
+		StartCoroutine(CheckAttack());			
+	}
+
+	IEnumerator CheckAttack() {
+		yield return new WaitForSeconds(1f);
+		_canAttack = true;
 	}
 
     private void OnDestroy() {
