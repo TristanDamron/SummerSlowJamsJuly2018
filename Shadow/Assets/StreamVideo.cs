@@ -24,4 +24,9 @@ public class StreamVideo : MonoBehaviour {
 		_image.texture = _player.texture;
 		_player.Play();
 	}
+
+	public void Reset(VideoClip _clip) {
+		_player.clip = _clip;
+		StartCoroutine(PlayVideo());
+	}
 }

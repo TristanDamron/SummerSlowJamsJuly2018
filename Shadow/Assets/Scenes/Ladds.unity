@@ -3789,6 +3789,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _image: {fileID: 1169992591}
+  _active: {fileID: 32900000, guid: 9900058a17da4d646b7ca7c7c586aaa1, type: 3}
+  _player: {fileID: 1006475713}
 --- !u!114 &1006475712
 MonoBehaviour:
   m_ObjectHideFlags: 0
