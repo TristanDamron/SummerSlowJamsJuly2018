@@ -66,17 +66,17 @@ public class Config : MonoBehaviour {
     }
 }
 
-[CustomEditor(typeof(Config))]
-public class ConfigEditor : Editor
-{
-  public override void OnInspectorGUI()
-  {
-    DrawDefaultInspector();
+// [CustomEditor(typeof(Config))]
+// public class ConfigEditor : Editor
+// {
+//   public override void OnInspectorGUI()
+//   {
+//     DrawDefaultInspector();
 
-		Config myScript = (Config)target;
-    if(GUILayout.Button("Simulate game start"))
-    {
-			Config.StartGame();
-    }
-  }
-}
+// 		Config myScript = (Config)target;
+//     if(GUILayout.Button("Simulate game start"))
+//     {
+// 			Config.StartGame();
+//     }
+//   }
+// }

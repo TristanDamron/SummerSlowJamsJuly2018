@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShadowController : MonoBehaviour {
+	[SerializeField]
+	private SkinnedMeshRenderer _mesh;
+
 	void OnTriggerEnter(Collider c) {
 		if (c.tag == "Light") {			
-			GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+			_mesh.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 		}
 	}
 
 	void OnTriggerExit(Collider c) {
 		if (c.tag == "Light") {
-			GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+			_mesh.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
 		}
 	}
 }

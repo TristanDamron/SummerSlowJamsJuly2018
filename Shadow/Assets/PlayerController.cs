@@ -21,12 +21,17 @@ public class PlayerController : MonoBehaviour {
 	private int numberOfBullets;
 	[SerializeField]
 	private GameObject _shadowWeapon;
+	[SerializeField]
+	private Animator _animator;
 	private Slider _healthBar;
 	private float _boost;
 
 
 	// Use this for initialization
 	void Start () {
+		if (GetComponent<Animator>() != null)
+			_animator = GetComponent<Animator>();
+
 		hp = 5;
 
 		if (PlayerNumber < 1 || PlayerNumber > Config.NumberOfPlayers) {
@@ -62,6 +67,13 @@ public class PlayerController : MonoBehaviour {
       		0,
 			yVelocity * Config.MovementSpeed * _boost
 		);
+
+		if (xVelocity != 0f || yVelocity != 0f) {
+			_animator.speed = 1f;
+			_animator.Play("walking");
+		} else {
+			_animator.speed = 0f;
+		}
 
 		if (!IsShadow) {
 			_energySlider.value = _energy;

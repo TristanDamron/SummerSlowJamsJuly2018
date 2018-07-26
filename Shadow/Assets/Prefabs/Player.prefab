@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 114966687639934986}
   - component: {fileID: 54571593972705406}
   - component: {fileID: 135300489527896294}
+  - component: {fileID: 95212944017531444}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -415,6 +416,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.9727378, z: 3.492321}
   m_Center: {x: 0, y: 0.60863066, z: 2.485336}
+--- !u!95 &95212944017531444
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1427026466502422}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!108 &108857400384974190
 Light:
   m_ObjectHideFlags: 1
@@ -617,6 +636,7 @@ MonoBehaviour:
   hp: 0
   numberOfBullets: 0
   _shadowWeapon: {fileID: 1352390200657234}
+  _animator: {fileID: 0}
 --- !u!114 &114984173672818430
 MonoBehaviour:
   m_ObjectHideFlags: 1
