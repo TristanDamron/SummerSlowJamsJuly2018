@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour {
 
 		var xVelocity = Input.GetAxis("HorizontalPlayer" + PlayerNumber);
 		var yVelocity = Input.GetAxis("VerticalPlayer" + PlayerNumber);
-		var sprint = Input.GetAxisRaw("Sprint" + PlayerNumber);
+		var sprint = Input.GetAxis("Sprint" + PlayerNumber);
 
 		if (frozen) {
 			gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
