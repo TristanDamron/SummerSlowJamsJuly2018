@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	private GameObject bulletPrefab;
 	[SerializeField]
-  	private Slider _energySlider;
+	private Material _energyRadial;
 
 	[Header("Player information")]
 	public bool IsShadow;
@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour {
 		
 		_canAttack = true;
 		frozen = false;
+		_energyRadial.SetFloat("_Fill", 0f); 
 	}
 	
 	// Update is called once per frame
@@ -92,19 +93,16 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (!IsShadow) {
-			_energySlider.value = _energy;
+			_energyRadial.SetFloat("_Fill", _energy / 3f); 
 			if (sprint != 0f && _energy >= 3f) {
 				_energy = 0f;
 				_boost = 3f;
-				_energySlider.gameObject.SetActive(true);			
 			} else if (_energy < 3f) {
-				// _energySlider.gameObject.SetActive(true);
 				_energy += Time.deltaTime;
 			} else {
 				_boost = 1f;
-				_energySlider.gameObject.SetActive(false);
+				_energyRadial.SetFloat("_Fill", 0f); 
 			}
-
 		}
 
 		Vector3 direction = (Vector3.right * xVelocity) + (Vector3.forward * yVelocity);
