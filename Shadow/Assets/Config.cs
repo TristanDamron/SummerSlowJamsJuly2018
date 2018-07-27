@@ -21,6 +21,10 @@ public class Config : MonoBehaviour {
 	public static float MovementSpeed { get { return config.movementSpeed; } }
 
 	[SerializeField]
+	float shadowMovementSpeed;
+	public static float ShadowMovementSpeed { get { return config.shadowMovementSpeed; } }
+
+	[SerializeField]
 	int numberOfPlayers;
 	public static int NumberOfPlayers { get { return config.numberOfPlayers; } }
 
@@ -50,7 +54,7 @@ public class Config : MonoBehaviour {
 	[SerializeField]
   int frozen;
 	public static int FrozenKids { get { return config.frozen; } set { config.frozen = value; } }
-	
+
 	[SerializeField]
   bool paused;
 	public static bool Paused { get { return config.paused; } set { config.paused = value; } }

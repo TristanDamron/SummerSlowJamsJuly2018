@@ -64,8 +64,8 @@ public class PlayerController : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
-		var xVelocity = Input.GetAxis("HorizontalPlayer" + PlayerNumber);
-		var yVelocity = Input.GetAxis("VerticalPlayer" + PlayerNumber);
+		var xVelocity = Input.GetAxisRaw("HorizontalPlayer" + PlayerNumber);
+		var yVelocity = Input.GetAxisRaw("VerticalPlayer" + PlayerNumber);
 		var sprint = Input.GetAxis("Sprint" + PlayerNumber);
 
 		if (frozen) {
@@ -80,9 +80,9 @@ public class PlayerController : MonoBehaviour {
 			);
 		} else if (IsShadow) {
 			gameObject.GetComponent<Rigidbody>().velocity = new Vector3(
-				(xVelocity * 0.95f) * Config.MovementSpeed,
+				xVelocity * Config.ShadowMovementSpeed,
       			0,
-				(yVelocity * 0.95f) * Config.MovementSpeed
+				yVelocity * Config.ShadowMovementSpeed
 			);
 		}
 
