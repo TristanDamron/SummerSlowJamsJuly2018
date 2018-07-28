@@ -2056,6 +2056,7 @@ MonoBehaviour:
   hp: 0
   numberOfBullets: 0
   _animator: {fileID: 95878209816635908}
+  _boost: 0
   frozen: 0
 --- !u!137 &137285364254898902
 SkinnedMeshRenderer:
@@ -2288,7 +2289,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -6828,7 +6829,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
