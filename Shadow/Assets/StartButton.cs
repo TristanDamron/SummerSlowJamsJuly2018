@@ -16,6 +16,7 @@ public class StartButton : MonoBehaviour {
 
 	public void StartGame() {
 		GetComponent<StreamVideo>().Reset(_active);
+		SoundManager.Inst.PlaySound(SoundManager.Inst.ButtonPressClip);		
 		StartCoroutine(CleanUp());
 	}	
 

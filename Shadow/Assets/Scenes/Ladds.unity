@@ -8442,6 +8442,11 @@ Prefab:
       propertyPath: ShadowHitClip
       value: 
       objectReference: {fileID: 8300000, guid: 4f6df63f59808d64aa850c4317dd1227, type: 3}
+    - target: {fileID: 114028199126409146, guid: 119966b8f247cd3419a14cd9fdd13fec,
+        type: 2}
+      propertyPath: ButtonPressClip
+      value: 
+      objectReference: {fileID: 8300000, guid: aa59cd7c804796348ac028e4887e596c, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 119966b8f247cd3419a14cd9fdd13fec, type: 2}
   m_IsPrefabParent: 0

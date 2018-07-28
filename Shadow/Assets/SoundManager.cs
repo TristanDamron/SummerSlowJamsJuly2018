@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour {
 	public AudioClip PlayerRevivedClip;
 	public AudioClip ShadowHitClip;
 	public AudioClip ShadowDiedClip;
+	public AudioClip ButtonPressClip;
 
 	private void Awake() {
 		source = gameObject.GetComponent<AudioSource>();
