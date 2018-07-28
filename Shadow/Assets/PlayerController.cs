@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
 	public int PlayerNumber; // 1-indexed
 	public float hp;
 
-	private float _energy = 3f;
+	private float _energy = 0f;
 	[SerializeField]
 	private int numberOfBullets;
 	// [SerializeField]
@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour {
 	private Slider _healthBar;
 	[SerializeField]
 	private float _boost;
+	[SerializeField]
+	private bool _useRadial;
 	private bool _canboost;
 	public bool frozen;
 
@@ -51,7 +53,10 @@ public class PlayerController : MonoBehaviour {
 		
 		_canboost = true;
 		frozen = false;
-//		_energyRadial.SetFloat("_Fill", 0f); 
+		if (_useRadial)
+			_energyRadial.SetFloat("_Fill", 0f);
+		else
+			_energyRadial = null; 
 	}
 	
 	// Update is called once per frame
@@ -90,7 +95,7 @@ public class PlayerController : MonoBehaviour {
 			_animator.Play("default");
 		}
 
-		// if (!IsShadow) {
+		// if (IsShadow && _useRadial) {
 		// 	_energyRadial.SetFloat("_Fill", _energy / 3f); 
 		// 	if (sprint != 0f && _energy >= 3f) {
 		// 		_energy = 0f;
@@ -110,13 +115,20 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetButtonDown("ShootPlayer" + PlayerNumber) && IsShadow && _canboost) {
 			_canboost = false;
-      		_boost = Config.ShadowBoostSpeed;
-			Debug.Log(_boost);				  
+      		_boost = Config.ShadowBoostSpeed;		  
 			StartCoroutine(ResetBoostSpeed());
     	}		
 		else if (Input.GetButtonDown("ShootPlayer" + PlayerNumber) && !IsShadow) {
       		Shoot();
     	}
+
+		if (_energy < Config.ShadowBoostResetTime + Config.ShadowBoostLength && !_canboost) {
+			_energy += Time.deltaTime;
+			_energyRadial.SetFloat("_Fill", _energy / (Config.ShadowBoostResetTime + Config.ShadowBoostLength)); 			
+		} else {
+			_energy = 0f;	
+			_energyRadial.SetFloat("_Fill", 0f); 
+		}
 	}
        
 	void Shoot() {
@@ -145,9 +157,8 @@ public class PlayerController : MonoBehaviour {
 	IEnumerator ResetBoostSpeed () {
 		yield return new WaitForSeconds(Config.ShadowBoostLength);		
 		_boost = 1f;
-		Debug.Log(_boost);	
 		yield return new WaitForSeconds(Config.ShadowBoostResetTime);
-		_canboost = true;	
+		_canboost = true;
 	}
 
 	IEnumerator CheckAttack() {
