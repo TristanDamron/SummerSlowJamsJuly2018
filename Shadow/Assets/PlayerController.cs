@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour {
 		_boost = 1f;
 		
 		_canboost = true;
-		frozen = false;
+
 		if (_useRadial)
 			_energyRadial.SetFloat("_Fill", 0f);
 		else
@@ -69,7 +69,6 @@ public class PlayerController : MonoBehaviour {
 
 		var xVelocity = Input.GetAxisRaw("HorizontalPlayer" + PlayerNumber);
 		var yVelocity = Input.GetAxisRaw("VerticalPlayer" + PlayerNumber);
-		// var sprint = Input.GetAxis("Sprint" + PlayerNumber);
 
 		if (frozen) {
 			gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
@@ -128,7 +127,7 @@ public class PlayerController : MonoBehaviour {
 		} else {
 			_energy = 0f;	
 			_energyRadial.SetFloat("_Fill", 0f); 
-		}
+		}	
 	}
        
 	void Shoot() {

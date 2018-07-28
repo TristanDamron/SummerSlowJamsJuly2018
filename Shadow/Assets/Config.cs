@@ -72,6 +72,10 @@ public class Config : MonoBehaviour {
 
 	public static void StartGame() {
 			CameraAdjuster.ScanForPlayersAndShadow();
+			var players = GameObject.FindGameObjectsWithTag("Player");
+			foreach(GameObject g in players) {
+				g.GetComponent<PlayerController>().frozen = false;
+			}
 	}
 
     public static void EndGame(bool playersWin) {

@@ -640,7 +640,7 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _boost: 0
   _useRadial: 0
-  frozen: 0
+  frozen: 1
 --- !u!114 &114984173672818430
 MonoBehaviour:
   m_ObjectHideFlags: 1
