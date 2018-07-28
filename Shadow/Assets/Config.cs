@@ -58,7 +58,15 @@ public class Config : MonoBehaviour {
 	[SerializeField]
   bool paused;
 	public static bool Paused { get { return config.paused; } set { config.paused = value; } }
-
+	[SerializeField]
+  float boostResetTime;
+	public static float ShadowBoostResetTime { get { return config.boostResetTime; } }
+	[SerializeField]
+  float boostLength;
+	public static float ShadowBoostLength { get { return config.boostLength; } }	
+	[SerializeField]
+  float shadowBoostSpeed;
+	public static float ShadowBoostSpeed { get { return config.shadowBoostSpeed; } }
     public GameObject EndGameObject;
     public TextMeshProUGUI EndGameWinnerText;
 

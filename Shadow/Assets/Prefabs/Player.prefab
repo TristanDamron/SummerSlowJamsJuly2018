@@ -465,7 +465,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.47982636, y: 1, z: 1}
+  m_Size: {x: 0.47982636, y: 1.14, z: 0.5}
   m_Center: {x: -0.010994673, y: 0, z: 0}
 --- !u!65 &65452506910567482
 BoxCollider:
@@ -475,7 +475,7 @@ BoxCollider:
   m_GameObject: {fileID: 1743081084748728}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -487,10 +487,10 @@ BoxCollider:
   m_GameObject: {fileID: 1361105501114818}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.9727378, z: 3.492321}
-  m_Center: {x: 0, y: 0.60863066, z: 2.485336}
+  m_Size: {x: 9.047001, y: 2.9727378, z: 16.904062}
+  m_Center: {x: 0.33570442, y: -0.420288, z: 9.255186}
 --- !u!95 &95212944017531444
 Animator:
   serializedVersion: 3
@@ -518,13 +518,13 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9984991, b: 0.5801887, a: 1}
   m_Intensity: 100
-  m_Range: 20
-  m_SpotAngle: 30
+  m_Range: 80
+  m_SpotAngle: 44.3
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -710,7 +710,6 @@ MonoBehaviour:
   PlayerNumber: 1
   hp: 0
   numberOfBullets: 0
-  _shadowWeapon: {fileID: 1352390200657234}
   _animator: {fileID: 0}
   frozen: 0
 --- !u!114 &114984173672818430
@@ -739,7 +738,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.19
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198740182833433526
 ParticleSystem:

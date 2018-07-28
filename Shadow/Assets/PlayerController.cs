@@ -19,13 +19,14 @@ public class PlayerController : MonoBehaviour {
 	private float _energy = 3f;
 	[SerializeField]
 	private int numberOfBullets;
-	[SerializeField]
-	private GameObject _shadowWeapon;
+	// [SerializeField]
+	// private GameObject _shadowWeapon;
 	[SerializeField]
 	private Animator _animator;
 	private Slider _healthBar;
+	[SerializeField]
 	private float _boost;
-	private bool _canAttack;
+	private bool _canboost;
 	public bool frozen;
 
 
@@ -46,14 +47,11 @@ public class PlayerController : MonoBehaviour {
 
 		_healthBar = GameObject.Find("HealthPlayer" + PlayerNumber).GetComponent<Slider>();
 		
-		if (IsShadow)
-			_boost = 3f;
-		else 
-			_boost = 1f;
+		_boost = 1f;
 		
-		_canAttack = true;
+		_canboost = true;
 		frozen = false;
-		_energyRadial.SetFloat("_Fill", 0f); 
+//		_energyRadial.SetFloat("_Fill", 0f); 
 	}
 	
 	// Update is called once per frame
@@ -66,7 +64,7 @@ public class PlayerController : MonoBehaviour {
 
 		var xVelocity = Input.GetAxisRaw("HorizontalPlayer" + PlayerNumber);
 		var yVelocity = Input.GetAxisRaw("VerticalPlayer" + PlayerNumber);
-		var sprint = Input.GetAxis("Sprint" + PlayerNumber);
+		// var sprint = Input.GetAxis("Sprint" + PlayerNumber);
 
 		if (frozen) {
 			gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
@@ -74,15 +72,15 @@ public class PlayerController : MonoBehaviour {
 
 		if (!IsShadow && !frozen) {
 			gameObject.GetComponent<Rigidbody>().velocity = new Vector3(
-				xVelocity * Config.MovementSpeed * _boost,
+				xVelocity * Config.MovementSpeed,
 				0,
-				yVelocity * Config.MovementSpeed * _boost
+				yVelocity * Config.MovementSpeed
 			);
 		} else if (IsShadow) {
 			gameObject.GetComponent<Rigidbody>().velocity = new Vector3(
-				xVelocity * Config.ShadowMovementSpeed,
+				xVelocity * (Config.ShadowMovementSpeed * _boost),
       			0,
-				yVelocity * Config.ShadowMovementSpeed
+				yVelocity * (Config.ShadowMovementSpeed * _boost)
 			);
 		}
 
@@ -92,28 +90,31 @@ public class PlayerController : MonoBehaviour {
 			_animator.Play("default");
 		}
 
-		if (!IsShadow) {
-			_energyRadial.SetFloat("_Fill", _energy / 3f); 
-			if (sprint != 0f && _energy >= 3f) {
-				_energy = 0f;
-				_boost = 3f;
-			} else if (_energy < 3f) {
-				_energy += Time.deltaTime;
-			} else {
-				_boost = 1f;
-				_energyRadial.SetFloat("_Fill", 0f); 
-			}
-		}
+		// if (!IsShadow) {
+		// 	_energyRadial.SetFloat("_Fill", _energy / 3f); 
+		// 	if (sprint != 0f && _energy >= 3f) {
+		// 		_energy = 0f;
+		// 		_boost = 3f;
+		// 	} else if (_energy < 3f) {
+		// 		_energy += Time.deltaTime;
+		// 	} else {
+		// 		_boost = 1f;
+		// 		_energyRadial.SetFloat("_Fill", 0f); 
+		// 	}
+		// }
 
 		Vector3 direction = (Vector3.right * xVelocity) + (Vector3.forward * yVelocity);
 		if (direction != Vector3.zero) {
       		transform.rotation = Quaternion.LookRotation(direction);
 		}
 
-		if (Input.GetButtonDown("ShootPlayer" + PlayerNumber) && IsShadow && _canAttack) {
-      		Swipe();
+		if (Input.GetButtonDown("ShootPlayer" + PlayerNumber) && IsShadow && _canboost) {
+			_canboost = false;
+      		_boost = Config.ShadowBoostSpeed;
+			Debug.Log(_boost);				  
+			StartCoroutine(ResetBoostSpeed());
     	}		
-		else if (Input.GetButtonDown("ShootPlayer" + PlayerNumber)) {
+		else if (Input.GetButtonDown("ShootPlayer" + PlayerNumber) && !IsShadow) {
       		Shoot();
     	}
 	}
@@ -136,20 +137,22 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Swipe() {
-		_canAttack = false;
-		_shadowWeapon.SetActive(true);
-		StartCoroutine(SheathWeapon());
+		_canboost = false;
+		// _shadowWeapon.SetActive(true);
+		// StartCoroutine(SheathWeapon());
 	}
 
-	IEnumerator SheathWeapon() {
-		yield return new WaitForSeconds(0.1f);		
-		_shadowWeapon.SetActive(false);	
-		StartCoroutine(CheckAttack());			
+	IEnumerator ResetBoostSpeed () {
+		yield return new WaitForSeconds(Config.ShadowBoostLength);		
+		_boost = 1f;
+		Debug.Log(_boost);	
+		yield return new WaitForSeconds(Config.ShadowBoostResetTime);
+		_canboost = true;	
 	}
 
 	IEnumerator CheckAttack() {
 		yield return new WaitForSeconds(1f);
-		_canAttack = true;
+		_canboost = true;
 	}
 
     private void OnDestroy() {
@@ -175,8 +178,7 @@ public class PlayerController : MonoBehaviour {
 				Config.FrozenKids--;		
 			frozen = false;
 			GetComponent<ParticleSystem>().Clear();			
-			GetComponent<ParticleSystem>().Stop();	
-			
+			GetComponent<ParticleSystem>().Stop();		
 		}
 
 	}
