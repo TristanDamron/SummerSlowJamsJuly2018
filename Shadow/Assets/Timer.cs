@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour {
 	private int _minutes; 
 	
 	void Update () {
-		if (!Config.Paused) {
+		if (Config.ReadyPlayers >= Config.NumberOfPlayers) {
 			_timer += Time.deltaTime;
 			if (_timer > _delay) {
 				_minutes++;
@@ -37,6 +37,10 @@ public class Timer : MonoBehaviour {
 
 				_timerText.text = strHours + ":" + strMinutes;
 				_timer = 0f;
+			}
+
+			if (_hours >= 3 && _minutes >= 33) {
+				Config.EndGame(true);
 			}
 		}
 	}
