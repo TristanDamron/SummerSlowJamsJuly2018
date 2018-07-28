@@ -162,6 +162,7 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter(Collider c) {
 		if (!IsShadow && c.tag == "Shadow") {
 			if (!frozen) {
+				SoundManager.Inst.PlaySound(SoundManager.Inst.PlayerFrozenClip);				
 				Config.FrozenKids++;			
 				hp -= 1f;
 			}
@@ -174,8 +175,11 @@ public class PlayerController : MonoBehaviour {
 
 	void OnCollisionEnter(Collision c) {
 		if (!IsShadow && c.gameObject.tag == "Player") {
-			if (frozen)
-				Config.FrozenKids--;		
+			if (frozen) {
+				SoundManager.Inst.PlaySound(SoundManager.Inst.PlayerRevivedClip);				
+				Config.FrozenKids--;						
+			}
+				
 			frozen = false;
 			GetComponent<ParticleSystem>().Clear();			
 			GetComponent<ParticleSystem>().Stop();		

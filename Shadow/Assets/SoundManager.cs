@@ -11,6 +11,10 @@ public class SoundManager : MonoBehaviour {
 	public AudioClip BulletDiesClip;
 	public AudioClip NoBulletsClip;
 	public AudioClip PickupClip;
+	public AudioClip PlayerFrozenClip;
+	public AudioClip PlayerRevivedClip;
+	public AudioClip ShadowHitClip;
+	public AudioClip ShadowDiedClip;
 
 	private void Awake() {
 		source = gameObject.GetComponent<AudioSource>();

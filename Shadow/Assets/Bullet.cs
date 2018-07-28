@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour {
 		switch (col.tag) {
 			case "Shadow":
 				col.gameObject.GetComponent<PlayerController>().hp -= 1f;
+				SoundManager.Inst.PlaySound(SoundManager.Inst.ShadowHitClip);				
 				Debug.Log("Hit shadow!");
 				break;
 			case "Player":
