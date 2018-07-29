@@ -220,6 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 328482660875821888}
   _image: {fileID: 114132982894269364}
+  _autoStart: 1
 --- !u!114 &114926973891971028
 MonoBehaviour:
   m_ObjectHideFlags: 1

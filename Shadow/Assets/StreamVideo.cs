@@ -9,9 +9,13 @@ public class StreamVideo : MonoBehaviour {
 	private VideoPlayer _player;
 	[SerializeField]
 	private RawImage _image;
+	[SerializeField]
+	private bool _autoStart;
 
 	void Start() {
-		StartCoroutine(PlayVideo());
+		if (_autoStart) {
+			StartCoroutine(PlayVideo());
+		}
 	}
 	
 	IEnumerator PlayVideo() {

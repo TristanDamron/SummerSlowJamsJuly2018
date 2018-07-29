@@ -1,14 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.Video;
 using UnityEngine.UI;
 
-public class StartButton : MonoBehaviour {
+public class StartButton : Selectable {
+	public BaseEventData data;
 	[SerializeField]
 	private RawImage _image;
 	[SerializeField]
-	private VideoClip _active;
+	private VideoClip _activeClip;
+	[SerializeField]
+	private VideoClip _highlightedClip;
+	[SerializeField]
+	private VideoClip _idleClip;
 	private bool _fall;
 	[SerializeField]
 	private GameObject _instructions;
@@ -16,22 +23,47 @@ public class StartButton : MonoBehaviour {
 	private bool _start;
 	[SerializeField]
 	private bool _ready;
+	[SerializeField]
+	private bool _isCredits;
+	[SerializeField]
+	private GameObject _credits;
+	[SerializeField]
+	private bool _isActive;
+	private Button _button;	
+	[SerializeField]
+	private Texture _idleTexture;
 
 	void Start () {
 		Config.Paused = true;
+		GetComponent<RawImage>().texture = _idleTexture;
+	}
+
+	public void OnHighLight() {
+		if (!GetComponent<StreamVideo>().enabled)
+			GetComponent<StreamVideo>().enabled = true;
+		GetComponent<StreamVideo>().Reset(_highlightedClip);
+	}
+
+	public void OnNotHighLight() {
+		GetComponent<StreamVideo>().enabled = false;
+		GetComponent<RawImage>().texture = _idleTexture;
 	}
 
 	public void StartGame() {
-		GetComponent<StreamVideo>().Reset(_active);
+		GetComponent<StreamVideo>().Reset(_activeClip);
 		SoundManager.Inst.PlaySound(SoundManager.Inst.ButtonPressClip);		
 		StartCoroutine(CleanUp());
 	}	
 
+	public void ShowInstructions() {
+		_instructions.SetActive(true);
+	}
+
 	IEnumerator CleanUp() {
 		yield return new WaitForSeconds(5f);		
 		_image.gameObject.SetActive(false);
-		_instructions.SetActive(true);
-		gameObject.SetActive(false);		
+		gameObject.SetActive(false);
+		Config.Paused = false;		
 	}
 
 	public void ReadyButton() {
@@ -40,20 +72,15 @@ public class StartButton : MonoBehaviour {
 		_fall = true;
 	}
 
-	void Update() {
-		if (Input.GetAxis("Submit") != 0f) {
-			if (_ready) {
-				ReadyButton();
-			} else if (_start) {
-				StartGame();
-			}
-		}
+	public void ShowCredits() {
+		_credits.SetActive(true);
+	}
 
-		if (_fall) {
-			transform.parent.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, -800, transform.position.z), Time.deltaTime);
-			if (transform.parent.position.y <= -800) {
-				transform.parent.gameObject.SetActive(false);
-			}
+	void Update() {
+		if (IsHighlighted(data) == true) {			
+			OnHighLight();
+		} else {
+			OnNotHighLight();
 		}
 	}
 }
