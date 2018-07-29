@@ -15,7 +15,7 @@ public class Bumper : MonoBehaviour {
 
 	void Update () {
 		_playbackTime += Time.deltaTime;			
-		if (_playbackTime >= _player.clip.length) {
+		if (_playbackTime >= _player.clip.length + 2f) {
 			_next.SetActive(true);
 			gameObject.SetActive(false);
 		}		
