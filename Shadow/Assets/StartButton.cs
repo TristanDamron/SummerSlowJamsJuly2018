@@ -14,22 +14,10 @@ public class StartButton : Selectable {
 	private VideoClip _activeClip;
 	[SerializeField]
 	private VideoClip _highlightedClip;
-	[SerializeField]
-	private VideoClip _idleClip;
 	private bool _fall;
 	[SerializeField]
 	private GameObject _instructions;
-	[SerializeField]
-	private bool _start;
-	[SerializeField]
-	private bool _ready;
-	[SerializeField]
-	private bool _isCredits;
-	[SerializeField]
-	private GameObject _credits;
-	[SerializeField]
-	private bool _isActive;
-	private Button _button;	
+
 	[SerializeField]
 	private Texture _idleTexture;
 
@@ -60,7 +48,7 @@ public class StartButton : Selectable {
 	}
 
 	IEnumerator CleanUp() {
-		yield return new WaitForSeconds(5f);		
+		yield return new WaitForSeconds(1f);		
 		_image.gameObject.SetActive(false);
 		gameObject.SetActive(false);
 		Config.Paused = false;		
