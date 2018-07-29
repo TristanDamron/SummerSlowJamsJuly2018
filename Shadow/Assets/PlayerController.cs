@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		_healthBar.value = hp;
+		_healthBar.value = Mathf.Lerp(_healthBar.value, hp, Time.deltaTime);
 
 		if (hp <= 0f) {
 			Destroy(gameObject);
