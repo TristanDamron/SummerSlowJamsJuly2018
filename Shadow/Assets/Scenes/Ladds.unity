@@ -4496,8 +4496,8 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 1006475715}
   _image: {fileID: 1169992591}
-  _activeClip: {fileID: 32900000, guid: 1c0d0a2ebcee5314f82266e8c4579a32, type: 3}
-  _highlightedClip: {fileID: 32900000, guid: 1c0d0a2ebcee5314f82266e8c4579a32, type: 3}
+  _activeClip: {fileID: 32900000, guid: efe5448758dca3c4093a33830967fcbf, type: 3}
+  _highlightedClip: {fileID: 32900000, guid: efe5448758dca3c4093a33830967fcbf, type: 3}
   _instructions: {fileID: 1165029566}
   _idleTexture: {fileID: 2800000, guid: e05302e9984b871468ce302828c39700, type: 3}
   _credits: {fileID: 0}
