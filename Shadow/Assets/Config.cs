@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEditor;
 using TMPro;
 
@@ -69,6 +70,9 @@ public class Config : MonoBehaviour {
 	public static float ShadowBoostSpeed { get { return config.shadowBoostSpeed; } }
     public GameObject EndGameObject;
     public TextMeshProUGUI EndGameWinnerText;
+		public Sprite raddLaddsWon;
+		public Sprite mmWon;
+		public Image gameoverImage;
 
 	public static void StartGame() {
 			CameraAdjuster.ScanForPlayersAndShadow();
@@ -84,7 +88,7 @@ public class Config : MonoBehaviour {
 				if (!playersWin) {
 					SoundManager.Inst.PlaySound(SoundManager.Inst.GameOverClip);
 				}
-        config.EndGameWinnerText.text = playersWin ? "RAD LADDS WIN!" : "MIDNIGHT MAN WINS!";
+        config.gameoverImage.sprite = playersWin ? config.raddLaddsWon : config.mmWon;
     }
 }
 

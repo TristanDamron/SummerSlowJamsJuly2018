@@ -14,12 +14,14 @@ public class StartButton : Selectable {
 	private VideoClip _activeClip;
 	[SerializeField]
 	private VideoClip _highlightedClip;
-	private bool _fall;
+
 	[SerializeField]
 	private GameObject _instructions;
 
 	[SerializeField]
 	private Texture _idleTexture;
+	[SerializeField]
+	private GameObject _credits;
 
 	void Start () {
 		Config.Paused = true;
@@ -57,7 +59,6 @@ public class StartButton : Selectable {
 	public void ReadyButton() {
 		SoundManager.Inst.PlaySound(SoundManager.Inst.ButtonPressClip);		
 		Config.Paused = false;		
-		_fall = true;
 	}
 
 	public void ShowCredits() {
