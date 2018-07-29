@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour {
 		if (GetComponent<Animator>() != null)
 			_animator = GetComponent<Animator>();
 
-		hp = 5;
+		hp = 3;
 
 		if (PlayerNumber < 1 || PlayerNumber > Config.NumberOfPlayers) {
 			Debug.LogError(
@@ -121,13 +121,15 @@ public class PlayerController : MonoBehaviour {
       		Shoot();
     	}
 
-		if (_energy < Config.ShadowBoostResetTime + Config.ShadowBoostLength && !_canboost) {
-			_energy += Time.deltaTime;
-			_energyRadial.SetFloat("_Fill", _energy / (Config.ShadowBoostResetTime + Config.ShadowBoostLength)); 			
-		} else {
-			_energy = 0f;	
-			_energyRadial.SetFloat("_Fill", 0f); 
-		}	
+		if (IsShadow) {
+			if (_energy < Config.ShadowBoostResetTime + Config.ShadowBoostLength && !_canboost) {
+				_energy += Time.deltaTime;
+				_energyRadial.SetFloat("_Fill", _energy / (Config.ShadowBoostResetTime + Config.ShadowBoostLength)); 			
+			} else {
+				_energy = 0f;	
+				_energyRadial.SetFloat("_Fill", 0f); 
+			}	
+		}
 	}
        
 	void Shoot() {
