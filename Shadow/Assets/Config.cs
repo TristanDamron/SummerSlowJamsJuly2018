@@ -81,6 +81,9 @@ public class Config : MonoBehaviour {
     public static void EndGame(bool playersWin) {
         print("The shadow is dead? " + playersWin);
         config.EndGameObject.SetActive(true);
+				if (!playersWin) {
+					SoundManager.Inst.PlaySound(SoundManager.Inst.GameOverClip);
+				}
         config.EndGameWinnerText.text = playersWin ? "RAD LADDS WIN!" : "MIDNIGHT MAN WINS!";
     }
 }
