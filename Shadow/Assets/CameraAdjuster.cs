@@ -55,9 +55,8 @@ public class CameraAdjuster : MonoBehaviour {
 			float largerDifference = xMaxDifference > zMaxDifference ? xMaxDifference : zMaxDifference;
 			largerDifference = Mathf.Min(1f, largerDifference);
 			targetCameraHeight = (largerDifference * targetCameraHeight) + 40;
-
-			// TODO(tdamron): Change this from 0.5f -> 1f
-			DoVhsShaders(0.5f - largerDifference);
+			
+			DoVhsShaders(1f - largerDifference);
 
 			cameraTargetPosition = new Vector3(
 				(furthestEast + furthestWest) / 2,
