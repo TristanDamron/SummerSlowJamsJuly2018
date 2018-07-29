@@ -34,8 +34,6 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if (GetComponent<Animator>() != null)
-			_animator = GetComponent<Animator>();
 
 		hp = 3;
 
